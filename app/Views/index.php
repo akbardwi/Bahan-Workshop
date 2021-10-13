@@ -325,16 +325,42 @@
             <section class="subscribe section">
                 <div class="subscribe__bg">
                     <div class="subscribe__container container">
-                        <div class="alert alert-success" role="alert">
-                            AAA<br />
+                        <?php
+                        $inputs = session()->getFlashdata('inputs');
+                        $errors = session()->getFlashdata('errors');
+                        $error = session()->getFlashdata('error');
+                        $success = session()->getFlashdata('success');
+                        if(!empty($errors)){ ?>
+                        <div style="text-align: center; color: red">
+                            <ul>
+                            <?php foreach ($errors as $errors) : ?>
+                                <li><?= esc($errors) ?></li>
+                            <?php endforeach ?>
+                            </ul>
                         </div>
+                        <br />
+                        <?php
+                        } 
+                        if(!empty($error)){ ?>
+                        <div style="text-align: center; color: red">
+                            <?= esc($error) ?><br />
+                        </div>
+                        <br />
+                        <?php } 
+                        if(!empty($success)){?>
+                        <div style="text-align: center; color: #00FF00">
+                            <?= esc($success) ?><br />
+                        </div>
+                        <br />
+                        <?php } ?>
                         <h2 class="section__title subscribe__title">Subscribe Our <br> Newsletter</h2>
                         <p class="subscribe__description">Subscribe to our newsletter and get a 
                             special 30% discount.
                         </p>
     
-                        <form action="" class="subscribe__form">
-                            <input type="text" placeholder="Enter email" class="subscribe__input">
+                        <form action="<?= base_url('home/subscribe'); ?>" method="post" class="subscribe__form">
+                            <?= csrf_field(); ?>
+                            <input type="email" name="email" placeholder="Enter email" class="subscribe__input">
     
                             <button class="button">
                                 Subscribe

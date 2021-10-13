@@ -40,4 +40,16 @@ class Validation
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------
+
+    // Subscription
+    public $subscribe = [
+        'email' => [
+			'label' => 'Email',
+			'rules' => 'required|valid_email',
+			'errors' => [
+				'required' => '{field} harus diisi.',
+				'valid_email' => '{field} harus valid.',
+			],
+		],
+    ];
 }
