@@ -23,11 +23,11 @@ class Home extends BaseController{
             $model = new Subscription_model();
             $check_email = $model->check_email($data['email']);
             if($check_email){
-                session()->setFlashdata('error', 'Email sudah terdaftar');
+                session()->setFlashdata('error', 'Email already registered');
                 return redirect()->to(base_url('/'));
             }else{
                 $model->insert($data);
-                session()->setFlashdata('success', 'Terima kasih telah berlangganan');
+                session()->setFlashdata('success', 'Successfully subscribed');
                 return redirect()->to(base_url('/'));
             }
         }else{
