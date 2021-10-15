@@ -2,8 +2,8 @@
 
 use CodeIgniter\Model;
 
-class Subscription_model extends Model{
-	protected $table 		= 'subscription';
+class Admin_model extends Model{
+	protected $table 		= 'admin';
 	protected $primaryKey 	= 'id';
 	protected $allowedFields = ['email'];
 
@@ -41,9 +41,9 @@ class Subscription_model extends Model{
 	}
 
     // Check Email
-	public function check_email($email){
+	public function check_user($username){
 		$this->select('*');
-		$this->where(['email' => $email]);
+		$this->where(['username' => $username]);
 		$query = $this->get();
 		return $query->getRowArray();
 	}

@@ -52,4 +52,22 @@ class Validation
 			],
 		],
     ];
+
+    // Login Admin
+    public $login_admin = [
+        'username' => [
+            'label' => 'Username',
+            'rules' => 'required',
+            'errors' => [
+                'required' => '{field} harus diisi.',
+            ],
+        ],
+        'password' => [
+            'label' => 'Password',
+            'rules' => 'required',
+            'errors' => [
+                'required' => '{field} harus diisi.',
+            ],
+        ],
+    ];
 }
