@@ -19,11 +19,11 @@ class Dashboard extends BaseController{
             return redirect()->to(base_url('admin/login'));
         }
         // End proteksi
-        $model = new Admin_model();
+        $modelAdmin = new Admin_model();
         $data = [
             'title'     => 'Dashboard',
             'dashboard' => True,
-            'user'      => $model->check_user(session()->get('admin_user')),
+            'user'      => $modelAdmin->check_user(session()->get('admin_user')),
         ];
         return view('admin/dashboard', $data);
     }
