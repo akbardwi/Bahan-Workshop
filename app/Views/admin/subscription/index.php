@@ -27,6 +27,31 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
+                            <?php
+                            $inputs = session()->getFlashdata('inputs');
+                            $errors = session()->getFlashdata('errors');
+                            $error = session()->getFlashdata('error');
+                            $success = session()->getFlashdata('success');
+                            if (!empty($errors)) { ?>
+                            <div class="alert alert-danger" role="alert">
+                                <ul>
+                                    <?php foreach ($errors as $errors) : ?>
+                                        <li><?= esc($errors) ?></li>
+                                    <?php endforeach ?>
+                                </ul>
+                            </div>
+                            <?php
+                            }
+                            if (!empty($error)) { ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= esc($error) ?><br />
+                            </div>
+                            <?php }
+                            if (!empty($success)) { ?>
+                            <div class="alert alert-success" role="alert">
+                                <?= esc($success) ?><br />
+                            </div>
+                            <?php } ?>
                             <div class="card">
                                 <div class="card-header">
                                     <h3 class="card-title">List Subscriber</h3>
