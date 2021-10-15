@@ -74,13 +74,13 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="index.html" class="nav-link active">
+                            <a href="<?= base_url('admin/dashboard'); ?>" class="nav-link <?php if (isset($dashboard)) { echo "active"; } ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="data.html" class="nav-link">
+                            <a href="<?= base_url('admin/subscription'); ?>" class="nav-link <?php if (isset($subscription)) { echo "active"; } ?>">
                                 <i class="nav-icon fas fa-envelope"></i>
                                 <p>Subscription</p>
                             </a>

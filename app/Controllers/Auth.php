@@ -23,7 +23,7 @@ class Auth extends BaseController{
                 $check_user = $model->check_user($data['username']);
                 if($check_user){
                     if(password_verify($data['password'], $check_user['password'])){
-                        session()->set('username', $check_user['username']);
+                        session()->set('admin_user', $check_user['username']);
                         return redirect()->to(base_url('admin/dashboard'));
                     }else{
                         session()->setFlashdata('error', 'Password salah');
